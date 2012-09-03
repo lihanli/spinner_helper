@@ -15,5 +15,6 @@ spinnerHelper.destroy()
 #### Requirements:
 jQuery 1.6 - 1.7
 
-<a href="http://fgnass.github.com/spin.js/">Spinner code</a> from Felix Gnass  
-<a href="https://gist.github.com/1290439">jQuery extension code</a> from Bradley Smith  
+#### Includes code from:
+<a href="http://fgnass.github.com/spin.js/">Felix Gnass</a>  
+<a href="https://gist.github.com/1290439">Bradley Smith</a>
