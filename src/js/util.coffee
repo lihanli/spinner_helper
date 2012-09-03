@@ -1,8 +1,3 @@
-disableClick = (element) ->
-  element.off 'click'
-  element.attr 'onclick', ''
-  element.css 'cursor', 'default'
-
 pixelValue = (value) ->
   "#{value}px"
 
@@ -19,24 +14,17 @@ class @SpinnerHelper
     @oldStyle = @element.attr('style')
     @oldStyle = '' unless @oldStyle?
 
-    disableClick @element
+    @element.off 'click'
     @element.html '&nbsp;'
-    @element.css
-      'background-image': 'none'
-      'background-color': 'transparent'
-      border:             'none'
-      'box-shadow':       'none'
-      'line-height':      pixelValue(oldHeight)
-      overflow:           'visible'
-      padding:            '0'
 
+    @element.css 'line-height', pixelValue(oldHeight)
     @element.width oldWidth
-    @element.addClass 'no_select'
+    @element.addClass 'spinner'
 
     @element.spin spinParams
   destroy: ->
     @element.spin false
     @element.attr 'style', @oldStyle
     @element.html @oldHtml
-    @element.removeClass 'no_select'
+    @element.removeClass 'spinner'
     @element.click(@oldClickHandler) if @oldClickHandler
