@@ -4,7 +4,6 @@ pixelValue = (value) ->
 class @SpinnerHelper
   constructor: (@element, spinParams = 'small') ->
     try
-      #@oldClickHandler = @element.data("events")["click"][0].handler
       @oldClickHandler = $._data(@element[0], 'events').click[0].handler
     catch e
       @oldClickHandler = false
@@ -19,7 +18,7 @@ class @SpinnerHelper
     @element.html '&nbsp;'
 
     @element.css 'line-height', pixelValue(oldHeight)
-    @element.width oldWidth
+    @element.css 'width',       pixelValue(oldWidth)
     @element.addClass 'spinner'
 
     @element.spin spinParams
