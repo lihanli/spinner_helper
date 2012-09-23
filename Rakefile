@@ -40,14 +40,13 @@ task :test do
       @driver.execute_script "return #{code}"
     end
 
-    def test_youtube_lazy_load
+    def test_spinner_helper
       button = fe(:id, 'button')
       output = fe(:id, 'output')
 
       button.click
-      %w(line-height width).each do |style|
-        assert_equal "100px", get_js("$('#button').css('#{style}')")
-      end
+      assert_equal "66px", get_js("$('#button').css('width')")
+      assert_equal "40px", get_js("$('#button').css('line-height')")
 
       wait_until { button.attribute('style') == '' }
       assert_equal '0', output.text
