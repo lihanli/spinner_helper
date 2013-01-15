@@ -9,16 +9,16 @@ class @SpinnerHelper
       @oldClickHandler = false
 
     oldHeight = @element.outerHeight()
-    oldWidth = @element.outerWidth()
-    @oldHtml = @element.html()
-    @oldStyle = @element.attr('style')
-    @oldStyle = '' unless @oldStyle?
+    oldWidth  = @element.outerWidth()
+    @oldHtml  = @element.html()
+    @oldStyle = @element.attr('style') ? ''
 
     @element.off 'click'
     @element.html '&nbsp;'
 
-    @element.css 'line-height', pixelValue(oldHeight)
-    @element.css 'width',       pixelValue(oldWidth)
+    @element.css
+      'line-height': pixelValue(oldHeight)
+      'width':       pixelValue(oldWidth)
     @element.addClass 'spinner'
 
     @element.spin spinParams

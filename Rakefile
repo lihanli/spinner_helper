@@ -1,10 +1,8 @@
 SCRIPT_FILE = "lib/spinner_helper.js"
-CSS_FILE    = "lib/spinner_helper.css"
 
 task :build do
-  `cat src/js/*.js | uglifyjs > #{SCRIPT_FILE}`
-  `coffee -p -c src | uglifyjs >> #{SCRIPT_FILE}`
-  `stylus -c < src/css/spinner_helper.styl > #{CSS_FILE}`
+  `cat src/js/*.js > #{SCRIPT_FILE}`
+  `coffee -p -c src >> #{SCRIPT_FILE}`
   puts 'compile done'
 end
 
@@ -18,7 +16,7 @@ task :test do
     def setup
       @driver = Selenium::WebDriver.for :firefox
       @driver.manage.timeouts.implicit_wait = 0
-      @WAIT = Selenium::WebDriver::Wait.new(timeout: 45)
+      @wait = Selenium::WebDriver::Wait.new(timeout: 45)
       @driver.get "file://#{Dir.pwd}/test/test.html"
     end
 
@@ -29,7 +27,7 @@ task :test do
     end
 
     def wait_until(&block)
-      @WAIT.until &block
+      @wait.until &block
     end
 
     def fe(type, name)
@@ -60,7 +58,6 @@ task :test do
 end
 
 task watch: [:build] do
-  require 'rubygems'
   require 'listen'
 
   Listen.to('src') do |modified, added, removed|
