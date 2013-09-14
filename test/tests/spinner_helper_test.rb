@@ -6,13 +6,18 @@ class SpinnerHelperTest < CapybaraTestCase
     visit "file://#{Dir.pwd}/test/test.html"
   end
 
+  def assert_spinner_style(val, attr)
+    assert_equal(val, get_js("$('.dynamic-spinner').css('#{attr}')"))
+  end
+
   def test
     button = find('#button')
     button.click
 
     %w(width line-height).each do |style|
-      assert_equal("100px", get_js("$('.dynamic-spinner').css('#{style}')"))
+      assert_spinner_style('100px', style)
     end
+    assert_spinner_style('inline-block', 'display')
 
     assert_equal('color: red; display: none !important;', button[:style])
 
