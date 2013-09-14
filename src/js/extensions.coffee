@@ -1,9 +1,4 @@
-addExtension = (funcName, func) ->
-  (($) ->
-    $.fn[funcName] = func
-  ) jQuery
-
-addExtension 'spin', (opts, color) ->
+$.fn.spin = (opts, color) ->
   presets =
     tiny:
       lines: 8

@@ -2,3 +2,9 @@
 	height: 100px;
 	width: 100px;
 }
+
+.btn-large {
+  display: inline-block !important;
+  height: 100px;
+  width: 100px;
+}

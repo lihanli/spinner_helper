@@ -1,30 +1,21 @@
-pixelValue = (value) ->
-  "#{value}px"
+DISPLAY_NONE_STYLE = 'display: none !important;'
 
-class @SpinnerHelper
+class window.SpinnerHelper
   constructor: (@element, spinParams = 'small') ->
-    try
-      @oldClickHandler = $._data(@element[0], 'events').click[0].handler
-    catch e
-      @oldClickHandler = false
+    @newEl = $('<div>&nbsp;</div>')
+      .css
+        'line-height': "#{@element.outerHeight()}px"
+        display: @element.css('display')
+        width: @element.outerWidth()
+      .addClass('dynamic-spinner')
 
-    oldHeight = @element.outerHeight()
-    oldWidth  = @element.outerWidth()
-    @oldHtml  = @element.html()
-    @oldStyle = @element.attr('style') ? ''
+    @element
+      .attr 'style', (__, oldStyle) ->
+        "#{$.trim(oldStyle)}#{DISPLAY_NONE_STYLE}"
+      .after(@newEl)
 
-    @element.off 'click'
-    @element.html '&nbsp;'
-
-    @element.css
-      'line-height': pixelValue(oldHeight)
-      'width':       pixelValue(oldWidth)
-    @element.addClass 'spinner'
-
-    @element.spin spinParams
+    @newEl.spin spinParams
   destroy: ->
-    @element.spin false
-    @element.attr 'style', @oldStyle
-    @element.html @oldHtml
-    @element.removeClass 'spinner'
-    @element.click(@oldClickHandler) if @oldClickHandler
+    @newEl.spin(false).remove()
+    @element.attr 'style', (__, oldStyle) ->
+      oldStyle.replace(DISPLAY_NONE_STYLE, '')
