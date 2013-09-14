@@ -6,7 +6,7 @@
     "Lihan Li <frankieteardrop@gmail.com>"
   ],
   "description": "spinner",
-  "main": "./lib/spinner_helper.js",
+  "main": "./dist/spinner_helper.js",
   "license": "MIT",
   "ignore": [
     "**/.*",

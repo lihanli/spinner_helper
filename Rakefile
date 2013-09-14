@@ -1,6 +1,6 @@
 require 'rake/testtask'
 
-SCRIPT_FILE = "lib/spinner_helper.js"
+SCRIPT_FILE = "dist/spinner_helper.js"
 
 task :build do
   `coffee -p -c src > #{SCRIPT_FILE}`
@@ -8,6 +8,8 @@ task :build do
 end
 
 Rake::TestTask.new('test') do |t|
+  Rake::Task["build"].execute
+
   t.libs << "test"
   t.test_files = FileList['test/tests/**/*.rb']
 end
