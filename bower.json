@@ -1,0 +1,23 @@
+{
+  "name": "spinner_helper",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lihanli/spinner_helper",
+  "authors": [
+    "Lihan Li <frankieteardrop@gmail.com>"
+  ],
+  "description": "spinner",
+  "main": "./lib/spinner_helper.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2"
+  },
+  "devDependencies": {
+    "bootstrap": "latest"
+  }
+}

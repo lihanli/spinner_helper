@@ -1,3 +1,5 @@
+require 'rake/testtask'
+
 SCRIPT_FILE = "lib/spinner_helper.js"
 
 task :build do
