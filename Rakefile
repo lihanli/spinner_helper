@@ -3,8 +3,7 @@ require 'rake/testtask'
 SCRIPT_FILE = "lib/spinner_helper.js"
 
 task :build do
-  `cat src/js/*.js > #{SCRIPT_FILE}`
-  `coffee -p -c src >> #{SCRIPT_FILE}`
+  `coffee -p -c src > #{SCRIPT_FILE}`
   puts 'compile done'
 end
 
