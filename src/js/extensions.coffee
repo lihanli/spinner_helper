@@ -25,15 +25,14 @@ $.fn.spin = (opts, color) ->
       if data.spinner
         data.spinner.stop()
         delete data.spinner
-      if opts isnt false
+      if opts?
         if typeof opts is "string"
           if opts of presets
             opts = presets[opts]
           else
             opts = {}
-          opts.color = color  if color
-        data.spinner = new Spinner($.extend(
-          color: $this.css("color")
-        , opts)).spin(this)
+          opts.color = color if color
+
+        data.spinner = new Spinner(opts).spin(this)
   else
     throw "Spinner class not available."

@@ -32,7 +32,7 @@
           data.spinner.stop();
           delete data.spinner;
         }
-        if (opts !== false) {
+        if (opts != null) {
           if (typeof opts === "string") {
             if (opts in presets) {
               opts = presets[opts];
@@ -43,9 +43,7 @@
               opts.color = color;
             }
           }
-          return data.spinner = new Spinner($.extend({
-            color: $this.css("color")
-          }, opts)).spin(this);
+          return data.spinner = new Spinner(opts).spin(this);
         }
       });
     } else {
