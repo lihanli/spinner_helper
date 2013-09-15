@@ -1,3 +1,5 @@
+# TODO use this jquery plugin http://fgnass.github.io/spin.js/jquery.spin.js
+
 $.fn.spin = (opts, color) ->
   presets =
     tiny:
