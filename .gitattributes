@@ -1,1 +1,3 @@
 dist/*.js -diff
+assets/css/*.css -diff
+assets/js/*.js -diff

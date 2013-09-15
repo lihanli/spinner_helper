@@ -20,7 +20,7 @@ class window.SpinnerHelper
       spinArgs.push('small') if spinArgs.length == 0
 
       @newEl.spin.apply(@newEl, spinArgs)
-    ).call(@)
+    ).apply(@, arguments)
 
   destroy: ->
     @newEl.spin(false).remove()

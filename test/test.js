@@ -3,7 +3,7 @@
 
   $(function() {
     $('#button').click(function() {
-      var spinnerHelper = new SpinnerHelper($(this));
+      var spinnerHelper = new SpinnerHelper($(this), 'large');
 
       setTimeout(function() {
         spinnerHelper.destroy();
