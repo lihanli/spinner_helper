@@ -62,11 +62,8 @@
 
   window.SpinnerHelper = (function() {
 
-    function SpinnerHelper(element, spinParams) {
+    function SpinnerHelper(element) {
       this.element = element;
-      if (spinParams == null) {
-        spinParams = 'small';
-      }
       this.newEl = $('<div>&nbsp;</div>').css({
         'line-height': "" + (this.element.outerHeight()) + "px",
         display: this.element.css('display'),
@@ -75,7 +72,15 @@
       this.element.attr('style', function(__, oldStyle) {
         return "" + ($.trim(oldStyle)) + DISPLAY_NONE_STYLE;
       }).after(this.newEl);
-      this.newEl.spin(spinParams);
+      (function() {
+        var spinArgs;
+        spinArgs = Array.prototype.slice.call(arguments, 0);
+        spinArgs.shift();
+        if (spinArgs.length === 0) {
+          spinArgs.push('small');
+        }
+        return this.newEl.spin.apply(this.newEl, spinArgs);
+      }).call(this);
     }
 
     SpinnerHelper.prototype.destroy = function() {

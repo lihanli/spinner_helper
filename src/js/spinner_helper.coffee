@@ -1,7 +1,7 @@
 DISPLAY_NONE_STYLE = 'display: none !important;'
 
 class window.SpinnerHelper
-  constructor: (@element, spinParams = 'small') ->
+  constructor: (@element) ->
     @newEl = $('<div>&nbsp;</div>')
       .css
         'line-height': "#{@element.outerHeight()}px"
@@ -14,8 +14,16 @@ class window.SpinnerHelper
         "#{$.trim(oldStyle)}#{DISPLAY_NONE_STYLE}"
       .after(@newEl)
 
-    @newEl.spin spinParams
+    (->
+      spinArgs = Array.prototype.slice.call(arguments, 0)
+      spinArgs.shift()
+      spinArgs.push('small') if spinArgs.length == 0
+
+      @newEl.spin.apply(@newEl, spinArgs)
+    ).call(@)
+
   destroy: ->
     @newEl.spin(false).remove()
+
     @element.attr 'style', (__, oldStyle) ->
       oldStyle.replace(DISPLAY_NONE_STYLE, '')
