@@ -7,11 +7,12 @@ task :build do
   puts 'compile done'
 end
 
-Rake::TestTask.new('test') do |t|
-  Rake::Task["build"].execute
-
+Rake::TestTask.new('do_tests') do |t|
   t.libs << "test"
   t.test_files = FileList['test/tests/**/*.rb']
+end
+
+task test: [:build, :do_tests] do
 end
 
 task watch: [:build] do
