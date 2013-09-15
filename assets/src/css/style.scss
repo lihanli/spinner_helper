@@ -1,0 +1,18 @@
+@import "CSS:../../../bower_components/bootstrap/dist/css/bootstrap";
+
+.alert-btn-box {
+  @extend .well;
+  @extend .text-center;
+  width: 250px;
+  margin: 25px auto;
+
+  .alert-btn {
+    height: 100px;
+    width: 200px;
+  }
+}
+
+.toggle-spinner-box {
+  @extend .text-center;
+  margin-top: 15px;
+}
