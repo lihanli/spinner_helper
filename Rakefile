@@ -3,7 +3,8 @@ require 'rake/testtask'
 SCRIPT_FILE = "dist/spinner_helper.js"
 
 def build_dist
-  `coffee -p -c src > #{SCRIPT_FILE}`
+  `cat src/js/*.js > #{SCRIPT_FILE}`
+  `coffee -p -c src >> #{SCRIPT_FILE}`
   puts 'dist built'
   build_assets_js
 end
