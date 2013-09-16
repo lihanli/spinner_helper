@@ -14,7 +14,7 @@ class SpinnerHelperTest < CapybaraTestCase
     button = find('#button')
     button.click
 
-    %w(width line-height).each do |style|
+    %w(width line-height margin).each do |style|
       assert_spinner_style('100px', style)
     end
     assert_spinner_style('inline-block', 'display')
