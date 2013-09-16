@@ -18,6 +18,3 @@ spinnerHelper.destroy();
 #### Requirements:
 jQuery >= 1.7.2  
 <a href="http://fgnass.github.com/spin.js" target="_blank">spin.js</a>
-
-#### Includes code from:
-<a href="https://gist.github.com/1290439">Bradley Smith</a>
