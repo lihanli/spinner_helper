@@ -10,6 +10,11 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
+    "Rakefile",
+    "Gemfile*",
+    "package.json",
+    "*.html",
+     "assets",
     "node_modules",
     "bower_components",
     "test"
