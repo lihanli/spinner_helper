@@ -14,7 +14,7 @@
     "Gemfile*",
     "package.json",
     "*.html",
-     "assets",
+    "assets",
     "node_modules",
     "bower_components",
     "test"
