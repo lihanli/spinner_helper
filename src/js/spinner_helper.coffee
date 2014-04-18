@@ -7,8 +7,11 @@ class window.SpinnerHelper
         'line-height': "#{@element.outerHeight()}px"
         display: @element.css('display')
         width: @element.outerWidth()
-        margin: @element.css('margin')
       .addClass('dynamic-spinner')
+
+    for type in ['top', 'left', 'bottom', 'right']
+      marginType = "margin-#{type}"
+      @newEl.css(marginType, @element.css(marginType))
 
     @element
       .attr 'style', (__, oldStyle) ->

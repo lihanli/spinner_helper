@@ -4,7 +4,7 @@ SCRIPT_FILE = "dist/spinner_helper.js"
 
 def build_dist
   `cat src/js/*.js > #{SCRIPT_FILE}`
-  `coffee -p -c src >> #{SCRIPT_FILE}`
+  `node_modules/.bin/coffee -p -c src >> #{SCRIPT_FILE}`
   puts 'dist built'
   build_assets_js
 end
@@ -15,8 +15,8 @@ def build_assets_js
   `cat bower_components/jquery/jquery.js > #{script_file}`
   `cat bower_components/spin.js/dist/spin.js >> #{script_file}`
   `cat dist/spinner_helper.js >> #{script_file}`
-  `coffee -p -c assets/src/js >> #{script_file}`
-  `uglifyjs -o #{script_file} #{script_file}`
+  `node_modules/.bin/coffee -p -c assets/src/js >> #{script_file}`
+  `node_modules/.bin/uglifyjs -o #{script_file} #{script_file}`
 
   puts 'assets js built'
 end

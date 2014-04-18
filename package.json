@@ -1,0 +1,9 @@
+{
+  "name": "spinner_helper",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "coffee-script":  "1.7.1",
+    "uglify-js":      "*"
+  }
+}
