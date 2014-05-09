@@ -25,5 +25,10 @@ class SpinnerHelperTest < CapybaraTestCase
     assert_text('0', find('#output'))
 
     assert_has_no_css('.dynamic-spinner')
+
+    # now test if float is saved
+    page.execute_script("$('#button').css('float', 'left')")
+    button.click
+    assert_spinner_style('left', 'float')
   end
 end

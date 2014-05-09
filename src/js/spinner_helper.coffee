@@ -7,6 +7,7 @@ class window.SpinnerHelper
         'line-height': "#{@element.outerHeight()}px"
         display: @element.css('display')
         width: @element.outerWidth()
+        float: @element.css('float')
       .addClass('dynamic-spinner')
 
     for type in ['top', 'left', 'bottom', 'right']
