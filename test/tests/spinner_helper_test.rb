@@ -18,6 +18,7 @@ class SpinnerHelperTest < CapybaraTestCase
       assert_spinner_style('100px', style)
     end
     assert_spinner_style('inline-block', 'display')
+    assert_spinner_style('relative', 'position')
 
     assert_equal('color: red; display: none !important;', button[:style])
 

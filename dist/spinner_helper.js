@@ -91,6 +91,7 @@ $('#el').spin('flower', 'red');
       this.newEl = $('<div>&nbsp;</div>').css({
         'line-height': "" + (this.element.outerHeight()) + "px",
         display: this.element.css('display'),
+        position: 'relative',
         width: this.element.outerWidth(),
         float: this.element.css('float')
       }).addClass('dynamic-spinner');
